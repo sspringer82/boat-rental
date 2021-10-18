@@ -27,9 +27,11 @@ Bootverleih
 - MySQL
 - sequelize
 - Express
-- schon TypeScript
+- schon TypeScript (/)
 - Keycloak
 
 ### Infrastruktur
 
 - docker/docker-compose
+
+# Applikation starten
