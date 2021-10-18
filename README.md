@@ -35,3 +35,13 @@ Bootverleih
 - docker/docker-compose
 
 # Applikation starten
+
+1. code holen
+2. cd backend
+3. npm install
+4. npm start
+
+# Todos
+
+- ENV - Port
+- Automatischen reload bei codeänderung
