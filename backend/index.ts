@@ -1,8 +1,10 @@
-import express from 'express';
+import express, { response } from 'express';
 import boatRouter from './boat';
 
 const port = 8080;
 const app = express();
+
+app.use(express.json());
 
 app.use('/boats', boatRouter);
 

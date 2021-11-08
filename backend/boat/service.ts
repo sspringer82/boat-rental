@@ -9,6 +9,40 @@ class BoatService {
   async getOneBoat(id: number): Promise<Boat | undefined> {
     return this.boats.find((boat) => boat.id === id);
   }
+
+  async createBoat(boat: Boat): Promise<Boat> {
+    let id = 1;
+    if (this.boats.length > 0) {
+      const tempId = this.boats
+        .map((boat) => boat.id)
+        .sort()
+        .pop();
+      if (tempId) {
+        id = tempId + 1;
+      }
+    }
+
+    this.boats.push(boat);
+    return boat;
+  }
+
+  async updateBoat(id: number, boat: Boat): Promise<Boat | undefined> {
+    const index = this.boats.findIndex((b) => b.id === id);
+    if (index === -1) {
+      return undefined;
+    }
+    this.boats[index] = boat;
+    return boat;
+  }
+
+  async deleteBoat(id: number): Promise<Boat | undefined> {
+    const index = this.boats.findIndex((b) => b.id === id);
+    if (index === -1) {
+      return undefined;
+    }
+
+    this.boats = this.boats.filter((b) => b.id !== id);
+  }
 }
 
 const boatService = new BoatService([
