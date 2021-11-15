@@ -1,3 +1,9 @@
+# todos
+
+- datenbank (mysql container + sequelize + typescript)
+- formular
+- materialui
+
 # Projekt
 
 Bootverleih
