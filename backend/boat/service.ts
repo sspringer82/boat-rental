@@ -52,5 +52,17 @@ const boatService = new BoatService([
     brand: 'Brabus',
     name: 'Die wilde Luzy',
   },
+  {
+    id: 2,
+    color: 'red',
+    brand: 'Yamaha',
+    name: 'Boaty McBoatface',
+  },
+  {
+    id: 3,
+    color: 'green',
+    brand: 'Kawasaki',
+    name: 'The Boat',
+  },
 ]);
 export default boatService;
