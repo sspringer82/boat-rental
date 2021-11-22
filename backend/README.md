@@ -14,3 +14,8 @@
 
 `docker exec -it mysql bash`
 `mysql -u root -p`
+
+docker ps: show containers
+docker stop: stop the container
+docker rm: remove container
+docker rmi: remove image
