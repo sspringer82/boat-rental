@@ -6,3 +6,5 @@ type Boat = {
 };
 
 export default Boat;
+
+export type InputBoat = Omit<Boat, 'id'> & { id?: number };

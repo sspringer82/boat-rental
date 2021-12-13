@@ -1,9 +1,9 @@
-import { ReactElement, useEffect, useState } from 'react';
-import Boat from '../Boat';
+import { ReactElement, useContext, useEffect } from 'react';
+import { BoatContext } from '../BoatContext';
 import BoatListItem from './BoatListItem';
 
 const BoatList = (): ReactElement => {
-  const [boats, setBoats] = useState<Boat[]>([]);
+  const [boats, setBoats] = useContext(BoatContext);
 
   useEffect(() => {
     fetch('http://localhost:8080/boats')

@@ -1,8 +1,8 @@
 # todos
 
-- datenbank (mysql container + sequelize + typescript)
-- formular
 - materialui
+- reactQuery
+- Applikation hübsch machen
 
 # Projekt
 

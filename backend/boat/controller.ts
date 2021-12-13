@@ -8,7 +8,7 @@ const obs = new PerformanceObserver((items) => {
   console.log(items.getEntries()[0].duration);
   performance.clearMarks();
 });
-obs.observe({ type: 'measure' });
+// obs.observe({ type: 'measure' });
 let boats: Boat[] = [];
 
 export async function getAllBoats(
