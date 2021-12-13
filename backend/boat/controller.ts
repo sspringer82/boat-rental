@@ -1,11 +1,27 @@
+import { PerformanceObserver, performance } from 'perf_hooks';
+
 import { Request, Response } from 'express';
+import Boat from './Boat';
 import boatService from './service';
+
+const obs = new PerformanceObserver((items) => {
+  console.log(items.getEntries()[0].duration);
+  performance.clearMarks();
+});
+obs.observe({ type: 'measure' });
+let boats: Boat[] = [];
 
 export async function getAllBoats(
   request: Request,
   response: Response,
 ): Promise<void> {
-  response.json(await boatService.getAllBoats());
+  performance.mark('A');
+  if (boats.length === 0) {
+    boats = await boatService.getAllBoats();
+  }
+  response.json(boats);
+  performance.mark('B');
+  performance.measure('A to B', 'A', 'B');
 }
 
 export async function getOneBoat(
