@@ -5,13 +5,13 @@ import {
   ErrorMessage,
   FormikHelpers,
 } from 'formik';
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 import { InputBoat } from '../Boat';
 import * as Yup from 'yup';
-import { BoatContext } from '../BoatContext';
+import useBoats from '../useBoats';
 
 const initialBoat: InputBoat = {
-  color: '',
+  color: '#000000',
   brand: '',
   name: '',
 };
@@ -26,32 +26,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const Form = (): ReactElement => {
-  const [, setBoats] = useContext(BoatContext);
-
-  function handleSubmit(
+  const { handleSave } = useBoats();
+  async function handleSubmit(
     values: InputBoat,
     { setSubmitting, resetForm }: FormikHelpers<InputBoat>,
-  ): void {
-    fetch('http://localhost:8080/boats', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(values),
-    })
-      .then((response) => {
-        setSubmitting(false);
-        if (response.ok) {
-          resetForm();
-          return response.json();
-        } else {
-          alert('Fehler beim Speichern');
-          return;
-        }
-      })
-      .then((newBoat) => {
-        if (newBoat) {
-          setBoats((prevBoats) => [...prevBoats, newBoat]);
-        }
-      });
+  ): Promise<void> {
+    const result = await handleSave(values);
+    setSubmitting(false);
+    if (result) {
+      resetForm();
+    }
   }
   return (
     <Formik

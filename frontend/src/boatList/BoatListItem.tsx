@@ -1,3 +1,5 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Card, Button } from '@mui/material';
 import { ReactElement } from 'react';
 import Boat from '../Boat';
 
@@ -8,7 +10,7 @@ type Props = {
 
 const BoatListItem = ({ boat, onDelete }: Props): ReactElement => {
   return (
-    <div>
+    <Card variant="outlined">
       {boat.brand} - {boat.name} -
       <span
         style={{
@@ -18,8 +20,14 @@ const BoatListItem = ({ boat, onDelete }: Props): ReactElement => {
           display: 'inline-block',
         }}
       ></span>
-      <button onClick={() => onDelete(boat.id)}>delete</button>
-    </div>
+      <Button
+        variant="contained"
+        startIcon={<DeleteIcon />}
+        onClick={() => onDelete(boat.id)}
+      >
+        Delete
+      </Button>
+    </Card>
   );
 };
 

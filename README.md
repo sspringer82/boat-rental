@@ -1,6 +1,8 @@
 # todos
 
 - materialui
+- editieren
+- Routing
 - reactQuery
 - Applikation hübsch machen
 

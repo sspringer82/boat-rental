@@ -1,25 +1,16 @@
-import { ReactElement, useContext, useEffect } from 'react';
-import { BoatContext } from '../BoatContext';
+import { ReactElement, useEffect } from 'react';
+import useBoats from '../useBoats';
 import BoatListItem from './BoatListItem';
 
 const BoatList = (): ReactElement => {
-  const [boats, setBoats] = useContext(BoatContext);
+  const { boats, deleteBoatById, setBoats } = useBoats();
 
   useEffect(() => {
     fetch('http://localhost:8080/boats')
       .then((response) => response.json())
       .then((boatData) => setBoats(boatData));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  function deleteBoatById(id: number) {
-    fetch(`http://localhost:8080/boats/${id}`, { method: 'DELETE' }).then(
-      (response) => {
-        if (response.ok) {
-          setBoats(boats.filter((boat) => boat.id !== id));
-        }
-      },
-    );
-  }
 
   return (
     <>
