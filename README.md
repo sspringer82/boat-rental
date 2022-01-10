@@ -5,6 +5,7 @@
 - Routing
 - reactQuery
 - Applikation hübsch machen
+- docker-compose
 
 # Projekt
 

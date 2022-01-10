@@ -8,6 +8,7 @@
     "@fontsource/roboto": "^4.5.1",
     "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.3",
+    "@react-keycloak/web": "^3.4.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -26,8 +27,8 @@
   },
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "test": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

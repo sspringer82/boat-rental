@@ -7,6 +7,7 @@
   "scripts": {
     "docker:build": "docker build . -t mysql",
     "docker:run": "docker run -p 3306:3306 --name mysql -d mysql",
+    "keycloak": "docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:16.1.0",
     "start": "ts-node index.ts"
   },
   "keywords": [],
@@ -14,10 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "@types/cors": "^2.8.12",
+    "@types/express-session": "^1.17.4",
     "@types/node": "^16.11.7",
     "@types/validator": "^13.7.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "keycloak-connect": "^16.1.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.9.0"
   },

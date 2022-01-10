@@ -6,7 +6,7 @@ export default function useBoats() {
   const [boats, setBoats] = useContext(BoatContext);
 
   async function handleSave(values: InputBoat): Promise<boolean> {
-    const response = await fetch('http://localhost:8080/boats', {
+    const response = await fetch('http://localhost:8081/boats', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(values),
@@ -22,7 +22,7 @@ export default function useBoats() {
   }
 
   async function deleteBoatById(id: number): Promise<void> {
-    const response = await fetch(`http://localhost:8080/boats/${id}`, {
+    const response = await fetch(`http://localhost:8081/boats/${id}`, {
       method: 'DELETE',
     });
 
